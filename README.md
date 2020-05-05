@@ -24,7 +24,7 @@ git clone https://github.com/HeyHeyChicken/NOVA.git
 ```
 2) Install packages
 ```
-cd ???
+cd NOVA
 npm install
 ```
 
