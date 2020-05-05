@@ -20,11 +20,6 @@ class Launcher {
         SELF.ClientPath = __dirname + "/src/client";
         SELF.ServerPath = __dirname + "/src/server";
 
-        if(LIBRARIES.OS.platform() === "win32"){
-            SELF.ClientPath = SELF.ClientPath.split("/").join("\\");
-            SELF.ServerPath = SELF.ServerPath.split("/").join("\\");
-        }
-
         SELF.Settings = JSON.parse(LIBRARIES.FS.readFileSync(__dirname + "/settings.json", "utf8"));
 
         console.log("######################################");
@@ -44,7 +39,7 @@ class Launcher {
                                 if(SELF.Settings.LaunchServerOnStart === true){
                                     let path = SELF.ServerPath + "/src/lib/Main.js";
                                     if(LIBRARIES.OS.platform() === "win32"){
-                                        path = PATH.split("/").join("\\");
+                                        path = path.split("/").join("\\");
                                     }
                                     const REQUIRE = require(path);
                                     SELF.ServerInstance = new REQUIRE(SELF.ServerPath + "/src", SELF);
@@ -53,7 +48,7 @@ class Launcher {
                                 if(SELF.Settings.LaunchClientOnStart === true){
                                     let path = SELF.ClientPath + "/src/lib/Main.js"
                                     if(LIBRARIES.OS.platform() === "win32"){
-                                        path = PATH.split("/").join("\\");
+                                        path = path.split("/").join("\\");
                                     }
                                     const REQUIRE = require(path);
                                     SELF.ClientInstance = new REQUIRE(SELF.ClientPath + "/src", SELF);
