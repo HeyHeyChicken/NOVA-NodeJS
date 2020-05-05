@@ -103,7 +103,7 @@ class Launcher {
     InstallPackages(_path, _name, _callback){
         const SELF = this;
 
-        SELF.Terminal("cd " + _path + "; npm install", function(_error_code, _messages){
+        SELF.Terminal("npm install", _path, function(_error_code, _messages){
             if(_error_code === 0){
                 SELF.Log("Your \"" + _name + "\" app's packages are installed.", "green");
 
@@ -124,9 +124,9 @@ class Launcher {
         if(_settings = 1){
             if (!LIBRARIES.FS.existsSync(_path)) {
                 SELF.Log("It seems that you don't have \"" + _name + "\" installed, we are downloading it.", "green");
-                SELF.Terminal("git --version", function(_error_code, _messages){
+                SELF.Terminal("git --version", null, function(_error_code, _messages){
                     if(_error_code === 0){
-                        SELF.Terminal("git clone " + _git + " " + _path, function(_error_code, _messages){
+                        SELF.Terminal("git clone " + _git + " " + _path, null, function(_error_code, _messages){
                             if(_error_code === 0){
                                 SELF.Log("The download went well.", "green");
                                 if(_callback !== undefined){
@@ -213,7 +213,7 @@ class Launcher {
         const SELF = this;
 
         SELF.Log("Updating...", "green");
-        SELF.Terminal("cd " + _path + "; git pull", function(_error_code, _messages){
+        SELF.Terminal("git pull", _path, function(_error_code, _messages){
             if(_error_code === 0){
                 SELF.Log("The update went well.", "green");
 
@@ -231,9 +231,9 @@ class Launcher {
     CheckUpdate(_path, _callback){
         const SELF = this;
 
-        SELF.Terminal("cd " + _path + "; git fetch origin", function(_error_code, _messages){
+        SELF.Terminal("git fetch origin", _path, function(_error_code, _messages){
             if(_error_code === 0){
-                SELF.Terminal("cd " + _path + "; git status", function(_error_code, _messages){
+                SELF.Terminal("git status", _path, function(_error_code, _messages){
                     if(_error_code === 0){
                         if(_messages.includes("Your branch is up to date with 'origin/master'.")){
                             if(_callback !== undefined){
@@ -250,11 +250,11 @@ class Launcher {
     }
 
     // Cette fonction exécute des commandes terminales sur le poste du client.
-    Terminal(_command, _callback){
+    Terminal(_command, _path, _callback){
         const SELF = this;
 
         const MESSAGES = [];
-        const EXECUTION = LIBRARIES.ChildProcess.exec(_command);
+        const EXECUTION = LIBRARIES.ChildProcess.exec(_command, { cwd: _path });
 
         EXECUTION.stdout.on("data", (_data) => {
             _data = _data.split("\n");
