@@ -11,9 +11,9 @@
 <br>
 
 <div align="center">
-    <a href="//nova-assistant.com">
-        <img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/screenshot.jpg">
-    </a>
+<a href="//nova-assistant.com">
+<img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/screenshot.jpg">
+</a>
 </div>
 
 <br>
