@@ -42,7 +42,8 @@ node index.js
 When you install NOVA, no features are installed. You need to add them.<br/>
 1) Go to your NOVA's server UI (the default URL is "http://localhost:8080/")
 2) Go to the "Skills" tab.
-3) Find skills you want, open the modal and click on the "Install" button. The server and clients will restarts, and the skill will be installed.
+3) Find skills you want, open the modal and click on the "Install" button.<br/>
+   The server and clients will restarts, and the skill will be installed.
 
 ## Documentation
 
