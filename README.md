@@ -35,7 +35,7 @@ npm install
 node index.js
 ```
 2) If you start the launcher for the first time, it will ask you if you want to launch a client or/and a server.<br/>
-   If you need to change it in the future, you'll have to edit the "/settings.json" at the root of the folder.
+   If you need to change it in the future, you'll have to edit the "/settings.json".
 
 ## Features
 
