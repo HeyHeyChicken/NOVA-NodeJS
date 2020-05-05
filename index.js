@@ -20,7 +20,10 @@ class Launcher {
         SELF.ClientPath = __dirname + "/src/client";
         SELF.ServerPath = __dirname + "/src/server";
 
-        console.log("Platform: " + LIBRARIES.OS.platform());
+        if(LIBRARIES.OS.platform() === "win32"){
+            SELF.ClientPath = SELF.ClientPath.split("/").join("\\");
+            SELF.ServerPath = SELF.ServerPath.split("/").join("\\");
+        }
 
         SELF.Settings = JSON.parse(LIBRARIES.FS.readFileSync(__dirname + "/settings.json", "utf8"));
 
@@ -39,12 +42,20 @@ class Launcher {
                         SELF.Launch(SELF.Settings.LaunchClientOnStart, SELF.ClientPath, SELF.GitClientURL, "NOVA - Client", function(){
                             SELF.InstallPackages(SELF.ClientPath, "NOVA - Client", function () {
                                 if(SELF.Settings.LaunchServerOnStart === true){
-                                    const REQUIRE = require(SELF.ServerPath + "/src/lib/Main.js");
+                                    let path = SELF.ServerPath + "/src/lib/Main.js";
+                                    if(LIBRARIES.OS.platform() === "win32"){
+                                        path = PATH.split("/").join("\\");
+                                    }
+                                    const REQUIRE = require(path);
                                     SELF.ServerInstance = new REQUIRE(SELF.ServerPath + "/src", SELF);
                                 }
 
                                 if(SELF.Settings.LaunchClientOnStart === true){
-                                    const REQUIRE = require(SELF.ClientPath + "/src/lib/Main.js");
+                                    let path = SELF.ClientPath + "/src/lib/Main.js"
+                                    if(LIBRARIES.OS.platform() === "win32"){
+                                        path = PATH.split("/").join("\\");
+                                    }
+                                    const REQUIRE = require(path);
                                     SELF.ClientInstance = new REQUIRE(SELF.ClientPath + "/src", SELF);
                                 }
 
