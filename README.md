@@ -34,8 +34,8 @@ npm install
 ```
 node index.js
 ```
-2) If you start the laucnher for the first time, it will ask you if you want to launch a client or/and a server.<br/>
-   If you need to change it in the future, you'll have to edit the "settings.json" at the root of the folder.
+2) If you start the launcher for the first time, it will ask you if you want to launch a client or/and a server.<br/>
+   If you need to change it in the future, you'll have to edit the "/settings.json" at the root of the folder.
 
 ## Features
 
@@ -63,11 +63,11 @@ NOVA has only been officially tested on Windows and Mac.
 
 **The license key is obligatory.**
 
-If you use NOVA for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation, pass the phrase `'non-commercial-and-evaluation'` in the "/src/settings.json" file, as presented below:
+If you use NOVA for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation, pass the phrase `'non-commercial-and-evaluation'` in the "/settings.json" file, as presented below:
 
 ```json
 {
-  "LicenseKey": "non-commercial-and-evaluation",
+  "LicenseKey": "non-commercial-and-evaluation"
 }
 ```
 
