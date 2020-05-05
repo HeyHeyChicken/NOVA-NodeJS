@@ -9,8 +9,6 @@ class Launcher {
     constructor() {
         const SELF = this;
 
-        SELF.UpdateAtBoot = true; // If true, the launcher will auto update NOVa at boot.
-
         SELF.GitClientURL = "https://github.com/HeyHeyChicken/NOVA-Client.git";
         SELF.GitServerURL = "https://github.com/HeyHeyChicken/NOVA-Server.git";
 
@@ -101,7 +99,7 @@ class Launcher {
                     }
                     else{
                         SELF.Log("A new version of \"" + _name + "\" is available.", "red");
-                        if(SELF.UpdateAtBoot === true){
+                        if(SELF.Settings.UpdateAtBoot === true){
                             SELF.Log("Because \"UpdateAtBoot\" is set to \"true\", we are starting the update.", "green");
                             SELF.Update(_path, function(){
                                 if(_callback !== undefined){
