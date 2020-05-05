@@ -28,6 +28,8 @@ class Launcher {
         console.log("##                                  ##");
         console.log("######################################");
 
+        SELF.CheckLicense();
+
         SELF.CheckLaunchClientOnStartSettings(function(){
             SELF.CheckLaunchServerOnStartSettings(function(){
                 SELF.Launch(SELF.Settings.LaunchServerOnStart, SELF.ServerPath, SELF.GitServerURL, "NOVA - Server", function(){
@@ -251,7 +253,15 @@ class Launcher {
             if(_callback !== undefined){
                 _callback(_answer);
             }
-        }))
+        }));
+    }
+
+    // Cette fonction vérifie la license.
+    CheckLicense() {
+        if(this.Settings.LicenseKey !== "non-commercial-and-evaluation"){
+            this.Log("Your license key is invalid.", "red");
+            process.exit();
+        }
     }
 
     // Cette fonction remplace la fonction "console.log".
