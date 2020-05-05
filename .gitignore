@@ -4,3 +4,4 @@ node_modules/
 sqlite.db
 /src/client/
 /src/server/
+/settings.json
