@@ -71,8 +71,8 @@ If you use NOVA for purposes not intended toward monetary compensation such as, 
 }
 ```
 
-The license key is validated in an offline mode.  No connection is made to any server.<br/>
-[Learn more](//nova-assistant.com/docs/tutorial-license-key.html) about how it works. <img width="91" src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/not-done-yet.jpg">
+The license key is validated in an offline mode.<br/>
+No connection is made to any server.<br/>
 
 <br>
 <br>
