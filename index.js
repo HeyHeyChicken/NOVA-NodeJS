@@ -2,7 +2,9 @@ const LIBRARIES = {
     FS: require("fs"),
     Colors: require("colors"),
     ChildProcess: require("child_process"),
-    ReadLine: require("readline")
+    ReadLine: require("readline"),
+    VM: require("vm"),
+    OS: require("os")
 };
 
 class Launcher {
@@ -17,6 +19,8 @@ class Launcher {
 
         SELF.ClientPath = __dirname + "/src/client";
         SELF.ServerPath = __dirname + "/src/server";
+
+        console.log("Platform: " + LIBRARIES.OS.platform());
 
         SELF.Settings = JSON.parse(LIBRARIES.FS.readFileSync(__dirname + "/settings.json", "utf8"));
 
@@ -43,6 +47,31 @@ class Launcher {
                                     const REQUIRE = require(SELF.ClientPath + "/src/lib/Main.js");
                                     SELF.ClientInstance = new REQUIRE(SELF.ClientPath + "/src", SELF);
                                 }
+
+                                /*
+                                if(SELF.Settings.LaunchServerOnStart === true){
+
+                                    try {
+
+                                        const REQUIRE = require(SELF.ServerPath + "/src/lib/Main.js");
+                                        SELF.ServerInstance = new REQUIRE(SELF.ServerPath + "/src", SELF);
+                                        /*
+                                        const script = new LIBRARIES.VM.Script(`
+                                            new _class(_path, _launcher);
+                                        `);
+                                        SELF.ServerInstance = script.runInContext(LIBRARIES.VM.createContext({
+                                            _launcher: SELF,
+                                            _path: SELF.ServerPath + "/src",
+                                            _class: require(SELF.ServerPath + "/src/lib/Main.js")
+                                        }));
+                                    } catch (e) {}
+                                }
+
+                                if(SELF.Settings.LaunchClientOnStart === true){
+                                    const REQUIRE = require(SELF.ClientPath + "/src/lib/Main.js");
+                                    SELF.ClientInstance = new REQUIRE(SELF.ClientPath + "/src", SELF);
+                                }
+                                 */
                             });
                         });
                     });
@@ -50,6 +79,14 @@ class Launcher {
             });
         });
     }
+
+    // Cette fonction va redémarrer le serveur et les clients.
+    /*
+    Reboot(){
+        console.log("Delete");
+        delete this.ServerInstance;
+    }
+    */
 
     // Cette fonction instale les packages nécessaires à l'execution d'une application.
     InstallPackages(_path, _name, _callback){
