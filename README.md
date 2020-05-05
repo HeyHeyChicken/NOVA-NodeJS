@@ -2,6 +2,7 @@
 <a href="//nova-assistant.com" rel="nofollow">
 <img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/github-logo.svg" alt="NOVA" width="300">
 </a>
+<br/>
 **NOVA** is a customizable voice assistant made with Node.js.<br>
 <br><br>
 [![Build status](https://app.codeship.com/projects/49e80880-5eed-0138-007b-4aba0f3d8bc0/status?branch=master)](https://app.codeship.com/projects/49e80880-5eed-0138-007b-4aba0f3d8bc0)
