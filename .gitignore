@@ -2,6 +2,5 @@ node_modules/
 .idea/
 !.src/README.md
 sqlite.db
-/src/client/
-/src/server/
+/src/*/
 /settings.json
