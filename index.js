@@ -3,8 +3,7 @@ const LIBRARIES = {
     Colors: require("colors"),
     ChildProcess: require("child_process"),
     ReadLine: require("readline"),
-    VM: require("vm"),
-    OS: require("os")
+    SocketIO: require("socket.io"),
 };
 
 class Launcher {
@@ -14,13 +13,11 @@ class Launcher {
         SELF.GitClientURL = "https://github.com/HeyHeyChicken/NOVA-Client.git";
         SELF.GitServerURL = "https://github.com/HeyHeyChicken/NOVA-Server.git";
 
-        SELF.ClientInstance = null;
-        SELF.ServerInstance = null;
-
         SELF.ClientPath = __dirname + "/src/client";
         SELF.ServerPath = __dirname + "/src/server";
 
         SELF.Settings = JSON.parse(LIBRARIES.FS.readFileSync(__dirname + "/settings.json", "utf8"));
+        SELF.SocketServer = null;
 
         console.log("######################################");
         console.log("##                                  ##");
@@ -29,6 +26,7 @@ class Launcher {
         console.log("######################################");
 
         SELF.CheckLicense();
+        SELF.InitialiseSocketServer();
 
         SELF.CheckLaunchClientOnStartSettings(function(){
             SELF.CheckLaunchServerOnStartSettings(function(){
@@ -36,48 +34,8 @@ class Launcher {
                     SELF.InstallPackages(SELF.ServerPath, "NOVA - Server", function () {
                         SELF.Launch(SELF.Settings.LaunchClientOnStart, SELF.ClientPath, SELF.GitClientURL, "NOVA - Client", function(){
                             SELF.InstallPackages(SELF.ClientPath, "NOVA - Client", function () {
-                                if(SELF.Settings.LaunchServerOnStart === true){
-                                    let path = SELF.ServerPath + "/src/lib/Main.js";
-                                    if(LIBRARIES.OS.platform() === "win32"){
-                                        path = path.split("/").join("\\");
-                                    }
-                                    const REQUIRE = require(path);
-                                    SELF.ServerInstance = new REQUIRE(SELF.ServerPath + "/src", SELF);
-                                }
-
-                                if(SELF.Settings.LaunchClientOnStart === true){
-                                    let path = SELF.ClientPath + "/src/lib/Main.js"
-                                    if(LIBRARIES.OS.platform() === "win32"){
-                                        path = path.split("/").join("\\");
-                                    }
-                                    const REQUIRE = require(path);
-                                    SELF.ClientInstance = new REQUIRE(SELF.ClientPath + "/src", SELF);
-                                }
-
-                                /*
-                                if(SELF.Settings.LaunchServerOnStart === true){
-
-                                    try {
-
-                                        const REQUIRE = require(SELF.ServerPath + "/src/lib/Main.js");
-                                        SELF.ServerInstance = new REQUIRE(SELF.ServerPath + "/src", SELF);
-                                        /*
-                                        const script = new LIBRARIES.VM.Script(`
-                                            new _class(_path, _launcher);
-                                        `);
-                                        SELF.ServerInstance = script.runInContext(LIBRARIES.VM.createContext({
-                                            _launcher: SELF,
-                                            _path: SELF.ServerPath + "/src",
-                                            _class: require(SELF.ServerPath + "/src/lib/Main.js")
-                                        }));
-                                    } catch (e) {}
-                                }
-
-                                if(SELF.Settings.LaunchClientOnStart === true){
-                                    const REQUIRE = require(SELF.ClientPath + "/src/lib/Main.js");
-                                    SELF.ClientInstance = new REQUIRE(SELF.ClientPath + "/src", SELF);
-                                }
-                                 */
+                                SELF.Terminal("node index.js", SELF.ServerPath);
+                                SELF.Terminal("node index.js", SELF.ClientPath);
                             });
                         });
                     });
@@ -86,13 +44,31 @@ class Launcher {
         });
     }
 
-    // Cette fonction va redémarrer le serveur et les clients.
-    /*
-    Reboot(){
-        console.log("Delete");
-        delete this.ServerInstance;
+    // Cette fonction initialise le serveur socket reliant le launcher au serveur NOVA.
+    InitialiseSocketServer(){
+        const SELF = this;
+
+        this.SocketServer = LIBRARIES.SocketIO();
+        this.SocketServer.on("connection", function(socket){ // Un serveur vient de se connecter au launcher.
+            // Si le serveur demande au launcher d'afficher du texte dans la console.
+            socket.on("log", function(_text, _color, _header){
+                SELF.Log(_text, _color, _header)
+            });
+
+            // Si le serveur demande au launcher de le redémarrer.
+            socket.on("reboot", function(){
+                SELF.Log("Rebooting ...", "green");
+                socket.emit("reboot");
+
+                setTimeout(function(){
+                    SELF.Terminal("node index.js", SELF.ServerPath);
+                    SELF.Terminal("node index.js", SELF.ClientPath);
+                }, 1000);
+            });
+        });
+
+        this.SocketServer.listen(8082);
     }
-    */
 
     // Cette fonction instale les packages nécessaires à l'execution d'une application.
     InstallPackages(_path, _name, _callback){
@@ -166,8 +142,8 @@ class Launcher {
         const SELF = this;
 
         if(SELF.Settings.LaunchClientOnStart === null){
-            SELF.AskQuestion("Do you want the launcher to auto start a client ? (y/n)", function(_answer){
-                if(_answer === "y"){
+            SELF.AskQuestion("Do you want the launcher to auto start a client ? (Y/n)", function(_answer){
+                if(_answer.toLowerCase() === "y" || _answer.toLowerCase() === "yes"){
                     SELF.Settings.LaunchClientOnStart = true;
                 }
                 else{
@@ -187,8 +163,8 @@ class Launcher {
         const SELF = this;
 
         if(SELF.Settings.LaunchServerOnStart === null){
-            SELF.AskQuestion("Do you want the launcher to auto start a server ? (y/n)", function(_answer){
-                if(_answer === "y"){
+            SELF.AskQuestion("Do you want the launcher to auto start a server ? (Y/n)", function(_answer){
+                if(_answer.toLowerCase() === "y" || _answer.toLowerCase() === "yes"){
                     SELF.Settings.LaunchServerOnStart = true;
                 }
                 else{
