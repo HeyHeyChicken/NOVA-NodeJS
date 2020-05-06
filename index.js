@@ -31,11 +31,15 @@ class Launcher {
         SELF.CheckLaunchClientOnStartSettings(function(){
             SELF.CheckLaunchServerOnStartSettings(function(){
                 SELF.Launch(SELF.Settings.LaunchServerOnStart, SELF.ServerPath, SELF.GitServerURL, "NOVA - Server", function(){
-                    SELF.InstallPackages(SELF.ServerPath, "NOVA - Server", function () {
+                    SELF.InstallPackages(SELF.Settings.LaunchServerOnStart, SELF.ServerPath, "NOVA - Server", function () {
                         SELF.Launch(SELF.Settings.LaunchClientOnStart, SELF.ClientPath, SELF.GitClientURL, "NOVA - Client", function(){
-                            SELF.InstallPackages(SELF.ClientPath, "NOVA - Client", function () {
-                                SELF.Terminal("node index.js", SELF.ServerPath);
-                                SELF.Terminal("node index.js", SELF.ClientPath);
+                            SELF.InstallPackages(SELF.Settings.LaunchClientOnStart, SELF.ClientPath, "NOVA - Client", function () {
+                                if(SELF.Settings.LaunchServerOnStart === true){
+                                    SELF.Terminal("node index.js", SELF.ServerPath);
+                                }
+                                if(SELF.Settings.LaunchClientOnStart === true){
+                                    SELF.Terminal("node index.js", SELF.ClientPath);
+                                }
                             });
                         });
                     });
@@ -61,8 +65,12 @@ class Launcher {
                 socket.emit("reboot");
 
                 setTimeout(function(){
-                    SELF.Terminal("node index.js", SELF.ServerPath);
-                    SELF.Terminal("node index.js", SELF.ClientPath);
+                    if(SELF.Settings.LaunchServerOnStart === true){
+                        SELF.Terminal("node index.js", SELF.ServerPath);
+                    }
+                    if(SELF.Settings.LaunchClientOnStart === true){
+                        SELF.Terminal("node index.js", SELF.ClientPath);
+                    }
                 }, 1000);
             });
         });
@@ -71,28 +79,34 @@ class Launcher {
     }
 
     // Cette fonction instale les packages nécessaires à l'execution d'une application.
-    InstallPackages(_path, _name, _callback){
+    InstallPackages(_settings, _path, _name, _callback){
         const SELF = this;
 
-        SELF.Terminal("npm install", _path, function(_error_code, _messages){
-            if(_error_code === 0){
-                SELF.Log("Your \"" + _name + "\" app's packages are installed.", "green");
+        if(_settings === true) {
+            SELF.Terminal("npm install", _path, function (_error_code, _messages) {
+                if (_error_code === 0) {
+                    SELF.Log("Your \"" + _name + "\" app's packages are installed.", "green");
 
-                if(_callback !== undefined){
-                    _callback();
+                    if (_callback !== undefined) {
+                        _callback();
+                    }
+                } else {
+                    console.log(_error_code);
                 }
+            });
+        }
+        else{
+            if (_callback !== undefined) {
+                _callback();
             }
-            else{
-                console.log(_error_code);
-            }
-        });
+        }
     }
 
     // Cette fonction lance une instance de NOVA.
     Launch(_settings, _path, _git, _name, _callback){
         const SELF = this;
 
-        if(_settings = 1){
+        if(_settings === true){
             if (!LIBRARIES.FS.existsSync(_path)) {
                 SELF.Log("It seems that you don't have \"" + _name + "\" installed, we are downloading it.", "green");
                 SELF.Terminal("git --version", null, function(_error_code, _messages){
@@ -133,6 +147,11 @@ class Launcher {
                         }
                     }
                 });
+            }
+        }
+        else{
+            if(_callback !== undefined){
+                _callback();
             }
         }
     }
