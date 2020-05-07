@@ -3,12 +3,24 @@ const LIBRARIES = {
     Colors: require("colors"),
     ChildProcess: require("child_process"),
     ReadLine: require("readline"),
-    SocketIO: require("socket.io"),
+    SocketIO: require("socket.io")
 };
 
 class Launcher {
     constructor() {
         const SELF = this;
+
+        // TODO : Nous devrions être capables de savoir si un skill n'est plus à jour afin de le réinstaller.
+        // TODO : Personnaliser le "What can I ask ?" du client (onglet chat).
+        // TODO : Il faut pouvoir revenir à l'onglet en cour en cas de redémarrage.
+        // TODO : Créer un skill qui démarre chrome avec les bons flags (il bug pour l'instant)
+        // TODO : Permettre à l'utilisateur de couper la radio.
+        // TODO : Spotify ne fonctionne pas toujours ... pk ?
+        // TODO : Il faut autoriser à installer des skills qui ne viennent pas de la lib.
+        // TODO : Il faut permettre aux utilisateurs de paramétrer leurs skills.
+        // TODO : Il faut que tout les skills aient leurs settings dand le fichier globbal.
+        // TODO : Verifier le fonctionnement du declenchement du mot clé.
+        // TODO : Permettre à l'utilisateur de modifier le mot clé.
 
         SELF.GitClientURL = "https://github.com/HeyHeyChicken/NOVA-Client.git";
         SELF.GitServerURL = "https://github.com/HeyHeyChicken/NOVA-Server.git";
@@ -56,18 +68,27 @@ class Launcher {
         this.SocketServer.on("connection", function(socket){ // Un serveur vient de se connecter au launcher.
             // Si le serveur demande au launcher d'afficher du texte dans la console.
             socket.on("log", function(_text, _color, _header){
-                SELF.Log(_text, _color, _header)
+                SELF.Log(_text, _color, _header);
             });
 
             // Si le serveur demande au launcher de le redémarrer.
-            socket.on("reboot", function(){
-                SELF.Log("Rebooting ...", "green");
+            socket.on("reboot_server", function(){
+                SELF.Log("Rebooting the server...", "green");
                 socket.emit("reboot");
 
                 setTimeout(function(){
                     if(SELF.Settings.LaunchServerOnStart === true){
                         SELF.Terminal("node index.js", SELF.ServerPath);
                     }
+                }, 1000);
+            });
+
+            // Si le serveur demande au launcher de le redémarrer.
+            socket.on("reboot_client", function(){
+                SELF.Log("Rebooting the client...", "green");
+                socket.emit("reboot");
+
+                setTimeout(function(){
                     if(SELF.Settings.LaunchClientOnStart === true){
                         SELF.Terminal("node index.js", SELF.ClientPath);
                     }
