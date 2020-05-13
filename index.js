@@ -18,9 +18,12 @@ class Launcher {
         // TODO : Spotify ne fonctionne pas toujours ... pk ?
         // TODO : Il faut autoriser à installer des skills qui ne viennent pas de la lib.
         // TODO : Il faut permettre aux utilisateurs de paramétrer leurs skills.
-        // TODO : Il faut que tout les skills aient leurs settings dand le fichier globbal.
-        // TODO : Verifier le fonctionnement du declenchement du mot clé.
-        // TODO : Permettre à l'utilisateur de modifier le mot clé.
+        // TODO : Il faut que tout les skills aient leurs settings dans le fichier globbal.
+        // TODO : L'utilisateur doit avoir la possibilité de supprimer un client.
+        // TODO : Réveille moi dans 5 secondes.
+        // TODO : Rappelle moi de "xxx" à 15h.
+        // TODO : Gestion des pièces de la maison ... ca sers a rien pour l'instant ?
+        // TODO : Faire fonctionner la detection du HotWord sur Raspberry.
 
         SELF.GitClientURL = "https://github.com/HeyHeyChicken/NOVA-Client.git";
         SELF.GitServerURL = "https://github.com/HeyHeyChicken/NOVA-Server.git";
