@@ -3,7 +3,8 @@ const LIBRARIES = {
     Colors: require("colors"),
     ChildProcess: require("child_process"),
     ReadLine: require("readline"),
-    SocketIO: require("socket.io")
+    SocketIO: require("socket.io"),
+    Path: require("path")
 };
 
 class Launcher {
@@ -29,13 +30,8 @@ class Launcher {
         SELF.GitClientURL = "https://github.com/HeyHeyChicken/NOVA-Client.git";
         SELF.GitServerURL = "https://github.com/HeyHeyChicken/NOVA-Server.git";
 
-        SELF.ClientPath = __dirname + "/src/client";
-        SELF.ServerPath = __dirname + "/src/server";
-
-        if(process.platform === "win32"){
-            SELF.ClientPath = SELF.ClientPath.split("/").join("\\");
-            SELF.ServerPath = SELF.ServerPath.split("/").join("\\");
-        }
+        SELF.ClientPath = LIBRARIES.Path.join(__dirname, "/src/client");
+        SELF.ServerPath = LIBRARIES.Path.join(__dirname, "/src/server");
 
         SELF.Settings = JSON.parse(LIBRARIES.FS.readFileSync(__dirname + "/settings.json", "utf8"));
         SELF.SocketServer = null;
