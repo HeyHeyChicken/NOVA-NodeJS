@@ -13,23 +13,29 @@ class Launcher {
         // TODO : Nous devrions être capables de savoir si un skill n'est plus à jour afin de le réinstaller.
         // TODO : Personnaliser le "What can I ask ?" du client (onglet chat).
         // TODO : Il faut pouvoir revenir à l'onglet en cour en cas de redémarrage.
-        // TODO : Créer un skill qui démarre chrome avec les bons flags (il bug pour l'instant)
+        // TODO : Créer un skill qui démarre chrome avec les bons flags (ce skill bug pour l'instant)
         // TODO : Permettre à l'utilisateur de couper la radio.
-        // TODO : Spotify ne fonctionne pas toujours ... pk ?
         // TODO : Il faut autoriser à installer des skills qui ne viennent pas de la lib.
         // TODO : Il faut permettre aux utilisateurs de paramétrer leurs skills.
         // TODO : Il faut que tout les skills aient leurs settings dans le fichier globbal.
         // TODO : L'utilisateur doit avoir la possibilité de supprimer un client.
-        // TODO : Réveille moi dans 5 secondes.
-        // TODO : Rappelle moi de "xxx" à 15h.
+        // TODO : Développer le skill "Réveille moi dans 5 secondes".
+        // TODO : Développer le skill "Rappelle moi de "xxx" à 15h".
         // TODO : Gestion des pièces de la maison ... ca sers a rien pour l'instant ?
         // TODO : Faire fonctionner la detection du HotWord sur Raspberry.
+        // TODO : Utiliser Git pour DL les skills plutot que du ZIP
+        // TODO : Faire un mode screenshot pour les messages :)
 
         SELF.GitClientURL = "https://github.com/HeyHeyChicken/NOVA-Client.git";
         SELF.GitServerURL = "https://github.com/HeyHeyChicken/NOVA-Server.git";
 
         SELF.ClientPath = __dirname + "/src/client";
         SELF.ServerPath = __dirname + "/src/server";
+
+        if(process.platform === "win32"){
+            SELF.ClientPath = SELF.ClientPath.split("/").join("\\");
+            SELF.ServerPath = SELF.ServerPath.split("/").join("\\");
+        }
 
         SELF.Settings = JSON.parse(LIBRARIES.FS.readFileSync(__dirname + "/settings.json", "utf8"));
         SELF.SocketServer = null;
