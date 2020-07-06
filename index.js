@@ -1,10 +1,10 @@
 const LIBRARIES = {
-    FS: require("fs"),
-    Colors: require("colors"),
-    ChildProcess: require("child_process"),
-    ReadLine: require("readline"),
-    SocketIO: require("socket.io"),
-    Path: require("path")
+    FS: require("fs"), // This library allows you to interact with local files on the machine.
+    Colors: require("colors"), // This library allows you to colorize the console outputs.
+    ChildProcess: require("child_process"), // This library allows you to execute terminal code on the local station.
+    ReadLine: require("readline"), // This library allows you to query the user in the terminal.
+    SocketIO: require("socket.io"), // This library allows you to design a socket server.
+    Path: require("path") // This library allows you to create paths without having to worry about the computer OS.
 };
 
 class Launcher {
@@ -62,18 +62,18 @@ class Launcher {
         });
     }
 
-    // Cette fonction initialise le serveur socket reliant le launcher au serveur NOVA.
+    // This function initializes the socket server connecting the launcher to the NOVA server.
     InitialiseSocketServer(){
         const SELF = this;
 
         this.SocketServer = LIBRARIES.SocketIO();
-        this.SocketServer.on("connection", function(socket){ // Un serveur vient de se connecter au launcher.
-            // Si le serveur demande au launcher d'afficher du texte dans la console.
+        this.SocketServer.on("connection", function(socket){ // A server has just connected to the launcher.
+            // If the server requests the launcher to display text in the console.
             socket.on("log", function(_text, _color, _header){
                 SELF.Log(_text, _color, _header);
             });
 
-            // Si le serveur demande au launcher de le redémarrer.
+            // If the server asks the launcher to restart.
             socket.on("reboot_server", function(){
                 SELF.Log("Rebooting the server...", "green");
                 socket.emit("reboot");
@@ -85,7 +85,7 @@ class Launcher {
                 }, 1000);
             });
 
-            // Si le serveur demande au launcher de le redémarrer.
+            // If the client asks the launcher to restart.
             socket.on("reboot_client", function(){
                 SELF.Log("Rebooting the client...", "green");
                 socket.emit("reboot");
@@ -101,7 +101,7 @@ class Launcher {
         this.SocketServer.listen(8082);
     }
 
-    // Cette fonction instale les packages nécessaires à l'execution d'une application.
+    // This function installs the required packages to run the application.
     InstallPackages(_settings, _path, _name, _callback){
         const SELF = this;
 
@@ -125,7 +125,7 @@ class Launcher {
         }
     }
 
-    // Cette fonction lance une instance de NOVA.
+    // This function launches an instance of NOVA.
     Launch(_settings, _path, _git, _name, _callback){
         const SELF = this;
 
@@ -179,7 +179,7 @@ class Launcher {
         }
     }
 
-    // Cette fonction vérifie auprès de l'utilisateur s'il faut ou non démarrer un client au démarrage du launcher.
+    // This function asks the user whether or not to start a client when starting the launcher.
     CheckLaunchClientOnStartSettings(_callback){
         const SELF = this;
 
@@ -200,7 +200,7 @@ class Launcher {
         }
     }
 
-    // Cette fonction vérifie auprès de l'utilisateur s'il faut ou non démarrer un serveur au démarrage du launcher.
+    // This function asks the user whether or not to start a server when starting the launcher.
     CheckLaunchServerOnStartSettings(_callback){
         const SELF = this;
 
@@ -221,7 +221,7 @@ class Launcher {
         }
     }
 
-    // Cette fonction met à jour NOVA.
+    // This function updates NOVA.
     Update(_path, _callback){
         const SELF = this;
 
@@ -240,7 +240,7 @@ class Launcher {
         });
     }
 
-    // Cette fonction regarde s'il existe des mises à jour.
+    // This function checks for updates.
     CheckUpdate(_path, _callback){
         const SELF = this;
 
@@ -262,7 +262,7 @@ class Launcher {
         });
     }
 
-    // Cette fonction exécute des commandes terminales sur le poste du client.
+    // This function executes terminal commands on the local computer.
     Terminal(_command, _path, _callback){
         const SELF = this;
 
@@ -300,7 +300,7 @@ class Launcher {
         });
     }
 
-    // Cette fonction pose une question à l'utilisateur via l'invite de commandes.
+    // This function asks the user a question from the command prompt.
     AskQuestion(_question, _callback) {
         this.Log(_question, "green");
         const RL = LIBRARIES.ReadLine.createInterface({
@@ -315,7 +315,7 @@ class Launcher {
         }));
     }
 
-    // Cette fonction vérifie la license.
+    // This function checks the license.
     CheckLicense() {
         if(this.Settings.LicenseKey !== "non-commercial-and-evaluation"){
             this.Log("Your license key is invalid.", "red");
@@ -323,7 +323,7 @@ class Launcher {
         }
     }
 
-    // Cette fonction remplace la fonction "console.log".
+    // This function replaces the "console.log" function.
     Log(_text, _color = "white", _header = "NOVA LAUNCHER"){
         if(_text.length > 0){
             if(LIBRARIES.Colors[_color] !== undefined){
