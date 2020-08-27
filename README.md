@@ -65,6 +65,8 @@ NOVA has only been officially tested on Windows and Mac.
 
 If you use NOVA for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation, pass the phrase `'non-commercial-and-evaluation'` in the "/settings.json" file, as presented below:
 
+<a href="//discord.gg/pkWbhDn" rel="nofollow"><img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/discord-logo.png" alt="Discord" width="50"></a> If you want to chat about NOVA, you can join this [Discord](//discord.gg/pkWbhDn).
+
 ```json
 {
   "LicenseKey": "non-commercial-and-evaluation"
