@@ -55,7 +55,7 @@ I provide support for all users through [GitHub issues](//github.com/HeyHeyChick
 
 If you would like to contribute to this project, make sure you first read the [guide for contributors](//github.com/HeyHeyChicken/NOVA/blob/master/CONTRIBUTING.md).
 
-<a href="//discord.gg/pkWbhDn" rel="nofollow"><img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/discord-logo.png" alt="Discord" width="50"></a><br/>
+<a href="//discord.gg/pkWbhDn" rel="nofollow"><img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/discord-logo.png" alt="Discord" width="100"></a><br/>
 If you want to chat about NOVA, you can join this [Discord](//discord.gg/pkWbhDn).
 
 ## Compatibility
