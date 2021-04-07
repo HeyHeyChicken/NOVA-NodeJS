@@ -45,10 +45,6 @@ When you install NOVA, no features are installed. You need to add them.<br/>
 3) Find skills you want, open the modal and click on the "Install" button.<br/>
    The server and clients will restarts, and the skill will be installed.
 
-## Documentation
-
-- [Developer guides](//nova-assistant.com/docs) <img width="91" src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/not-done-yet.jpg">
-
 ## Support and contribution
 
 I provide support for all users through [GitHub issues](//github.com/HeyHeyChicken/NOVA/issues).
@@ -59,7 +55,7 @@ If you would like to contribute to this project, make sure you first read the [g
 
 ## Compatibility
 
-NOVA has only been officially tested on Windows and Mac.
+NOVA has only been officially tested on Mac.
 
 ## License key
 
