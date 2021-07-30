@@ -6,3 +6,5 @@ sqlite.db
 /src/*/
 /src/server/
 /src/client/
+src/.DS_Store
+settings.json
