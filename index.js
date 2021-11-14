@@ -1,4 +1,4 @@
-const LIBRARIES = {
+LIBRARIES = {
     FS: require("fs"), // This library allows you to interact with local files on the machine.
     Colors: require("colors"), // This library allows you to colorize the console outputs.
     ChildProcess: require("child_process"), // This library allows you to execute terminal code on the local station.
@@ -185,7 +185,7 @@ class Launcher {
 
         if(SELF.Settings.LaunchClientOnStart === null){
             SELF.AskQuestion("Do you want the launcher to auto start a client ? (Y/n)", function(_answer){
-                if(_answer.toLowerCase() === "y" || _answer.toLowerCase() === "yes"){
+                if(_answer.toLowerCase() === "y" || _answer.toLowerCase() === "yes" || _answer === ""){
                     SELF.Settings.LaunchClientOnStart = true;
                 }
                 else{
@@ -206,7 +206,7 @@ class Launcher {
 
         if(SELF.Settings.LaunchServerOnStart === null){
             SELF.AskQuestion("Do you want the launcher to auto start a server ? (Y/n)", function(_answer){
-                if(_answer.toLowerCase() === "y" || _answer.toLowerCase() === "yes"){
+                if(_answer.toLowerCase() === "y" || _answer.toLowerCase() === "yes" || _answer === ""){
                     SELF.Settings.LaunchServerOnStart = true;
                 }
                 else{
