@@ -37,6 +37,8 @@ node index.js
 2) If you start the launcher for the first time, it will ask you if you want to launch a client or/and a server.<br/>
    If you need to change it in the future, you'll have to edit the "/settings.json".
 
+If you want more detailed explanations, you will find them on the [Wiki](//github.com/HeyHeyChicken/NOVA/wiki).
+
 ## Features
 
 When you install NOVA, no features are installed. You need to add them.<br/>
