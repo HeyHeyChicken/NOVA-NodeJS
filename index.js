@@ -114,7 +114,7 @@ class Launcher {
                         _callback();
                     }
                 } else {
-                    console.log(_error_code);
+                    console.log("npm install error : " + _error_code);
                 }
             });
         }
@@ -146,16 +146,18 @@ class Launcher {
                 });
             }
             else{
-                SELF.CheckUpdate(_path, function(_updateAvailable){
-                    if(_updateAvailable === true){
-                        SELF.Log("Your \"" + _name + "\" app seems to be up to date.", "green");
-                        if(_callback !== undefined){
-                            _callback();
+                const UP_TO_DATE = "Your \"" + _name + "\" app seems to be up to date.";
+                const NEW_VERSION = "A new version of \"" + _name + "\" is available.";
+                if(SELF.Settings.UpdateAtBoot === true){
+                    SELF.CheckUpdate(_path, function(_updateAvailable){
+                        if(_updateAvailable === true){
+                            SELF.Log(UP_TO_DATE, "green");
+                            if(_callback !== undefined){
+                                _callback();
+                            }
                         }
-                    }
-                    else{
-                        SELF.Log("A new version of \"" + _name + "\" is available.", "red");
-                        if(SELF.Settings.UpdateAtBoot === true){
+                        else{
+                            SELF.Log(NEW_VERSION, "red");
                             SELF.Log("Because \"UpdateAtBoot\" is set to \"true\", we are starting the update.", "green");
                             SELF.Update(_path, function(){
                                 if(_callback !== undefined){
@@ -163,13 +165,21 @@ class Launcher {
                                 }
                             });
                         }
-                        else{
-                            if(_callback !== undefined){
-                                _callback();
-                            }
+                    });
+                }
+                else{
+                    SELF.CheckUpdate(_path, function(_updateAvailable){
+                        if(_updateAvailable === true){
+                            SELF.Log(UP_TO_DATE, "green");
                         }
+                        else{
+                            SELF.Log(NEW_VERSION, "red");
+                        }
+                    });
+                    if(_callback !== undefined){
+                        _callback();
                     }
-                });
+                }
             }
         }
         else{
@@ -235,7 +245,7 @@ class Launcher {
                 }
             }
             else{
-                console.log(_error_code);
+                console.log("git pull : " + _error_code);
             }
         });
     }
