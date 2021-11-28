@@ -57,7 +57,7 @@ If you would like to contribute to this project, make sure you first read the [g
 
 ## Compatibility
 
-NOVA has only been officially tested on Mac.
+NOVA has only been officially tested on Mac and Linux.
 
 ## License key
 
