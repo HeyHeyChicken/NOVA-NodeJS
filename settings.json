@@ -1,7 +1,7 @@
 {
     "LaunchClientOnStart": null,
     "LaunchServerOnStart": null,
-    "Debug": false,
+    "Debug": true,
     "UpdateAtBoot": true,
     "LicenseKey": "non-commercial-and-evaluation"
 }
