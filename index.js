@@ -266,6 +266,10 @@ class Launcher {
         const MESSAGES = [];
         const EXECUTION = LIBRARIES.ChildProcess.exec(_command, { cwd: _path });
 
+        if(SELF.Settings.Debug === true){
+            SELF.Log("Command : " + _command);
+        }
+
         EXECUTION.stdout.on("data", (_data) => {
             _data = _data.split("\n");
             for(let i = 0; i < _data.length; i++){
