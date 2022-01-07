@@ -121,7 +121,7 @@ class Launcher {
                 SELF.Log("It seems that you don't have \"" + _name + "\" installed, we are downloading it.", "green");
                 SELF.Terminal("git --version", null, function(_error_code, _messages){
                     if(_error_code === 0){
-                        SELF.Terminal("git clone " + _git + " " + _path, null, function(_error_code, _messages){
+                        SELF.Terminal("git clone " + _git + " \"" + _path + "\"", null, function(_error_code, _messages){
                             if(_error_code === 0){
                                 SELF.Log("The download went well.", "green");
                                 if(_callback !== undefined){
