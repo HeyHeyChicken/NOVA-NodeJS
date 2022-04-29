@@ -4,6 +4,7 @@
 
 **NOVA** is a customizable voice assistant made with Node.js.<br>
 <br>
+[![Discord](https://img.shields.io/discord/704685696513736765?label=Discord&style=flat&logo=discord)](https://discord.gg/CzasNJfW)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHeyHeyChicken%2FNOVA.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHeyHeyChicken%2FNOVA?ref=badge_shield)
 </div>
 <br><br>
