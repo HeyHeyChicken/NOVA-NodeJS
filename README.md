@@ -9,12 +9,15 @@
 </div>
 <br><br>
 <div align="center">
-<a href="//nova-assistant.com">
 <img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/screenshot.jpg">
-</a>
 </div>
 
 <br>
+
+## Introduction
+
+**NOVA** is an open-source personal assistant that you can host on your server.<br/>
+You can communicate with it orally or in writing, most of his skills are designed to work offline to protect your privacy.
 
 ## Installation
 
