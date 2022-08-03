@@ -2,19 +2,28 @@
  
 <img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/github-logo.svg" alt="NOVA" width="300">
 
-**NOVA** is a customizable voice assistant made with Node.js.<br>
+**NOVA** is a customizable personal assistant made with Node.js.<br>
 <br>
-[![Discord](https://img.shields.io/discord/704685696513736765?label=Discord&style=flat&logo=discord)](https://discord.gg/CzasNJfW)
+[![Discord](https://img.shields.io/discord/704685696513736765?label=Discord&style=flat&logo=discord)](https://discord.gg/pkWbhDn)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHeyHeyChicken%2FNOVA.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHeyHeyChicken%2FNOVA?ref=badge_shield)
 </div>
 <br><br>
 <div align="center">
-<a href="//nova-assistant.com">
 <img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/screenshot.jpg">
-</a>
 </div>
 
 <br>
+
+## Introduction
+
+**NOVA** is an open-source personal assistant that you can host on your server.<br/>
+You can communicate with it orally or in writing, most of his skills are designed to work offline to protect your privacy.
+
+## Prerequisites
+
+[<img src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/nodeJSLogo.png" width="18" /> Node.js](https://nodejs.org/)<br/>
+[<img src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/npmLogo.png" width="18" /> npm](https://npmjs.com/)<br/>
+[<img src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/gitLogo.png" width="18" /> Git](https://git-scm.com/)<br/>
 
 ## Installation
 
@@ -58,21 +67,6 @@ If you would like to contribute to this project, make sure you first read the [g
 ## Compatibility
 
 NOVA has only been officially tested on Mac and Linux.
-
-## License key
-
-**The license key is obligatory.**
-
-If you use NOVA for purposes not intended toward monetary compensation such as, but not limited to, teaching, academic research, evaluation, testing and experimentation, pass the phrase `'non-commercial-and-evaluation'` in the "/settings.json" file, as presented below:
-
-```json
-{
-  "LicenseKey": "non-commercial-and-evaluation"
-}
-```
-
-The license key is validated in an offline mode.<br/>
-No connection is made to any server.<br/>
 
 <br>
 <br>
