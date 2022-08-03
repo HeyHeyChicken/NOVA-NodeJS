@@ -36,9 +36,11 @@ class Launcher {
                         SELF.Launch(SELF.Settings.LaunchClientOnStart, SELF.ClientPath, SELF.GitClientURL, "NOVA - Client", function(){
                             SELF.InstallPackages(SELF.Settings.LaunchClientOnStart, SELF.ClientPath, "NOVA - Client", function () {
                                 if(SELF.Settings.LaunchServerOnStart === true){
+                                    SELF.Log("Starting the server ...", "green");
                                     SELF.Terminal("node index.js", SELF.ServerPath);
                                 }
                                 if(SELF.Settings.LaunchClientOnStart === true){
+                                    SELF.Log("Starting the client ...", "green");
                                     SELF.Terminal("node index.js", SELF.ClientPath);
                                 }
                             });
