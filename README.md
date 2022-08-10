@@ -7,7 +7,8 @@
 [![Discord](https://img.shields.io/discord/704685696513736765?label=Discord&style=flat&logo=discord)](https://discord.gg/pkWbhDn)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHeyHeyChicken%2FNOVA.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHeyHeyChicken%2FNOVA?ref=badge_shield)
 </div>
-<br><br>
+<br>
+<br>
 <div align="center">
 <img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/screenshot.jpg">
 </div>
