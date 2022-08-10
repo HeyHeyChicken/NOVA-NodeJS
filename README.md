@@ -15,18 +15,18 @@
 
 <br>
 
-## Introduction
+## 👋 Introduction
 
 **NOVA** is an open-source personal assistant that you can host on your server.<br/>
 You can communicate with it orally or in writing, most of his skills are designed to work offline to protect your privacy.
 
-## Prerequisites
+## 🔧 Prerequisites
 
 [<img src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/nodeJSLogo.png" width="18" /> Node.js](https://nodejs.org/)<br/>
 [<img src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/npmLogo.png" width="18" /> npm](https://npmjs.com/)<br/>
 [<img src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/gitLogo.png" width="18" /> Git](https://git-scm.com/)<br/>
 
-## Installation
+## ⬇️ Installation
 
 1) Clone it directly from GitHub.
 ```
@@ -40,7 +40,7 @@ cd NOVA
 npm install
 ```
 
-## Usage
+## 🚀 Usage
 
 1) Launch this command.
 ```
@@ -51,7 +51,7 @@ node index.js
 
 If you want more detailed explanations, you will find them on the [Wiki](//github.com/HeyHeyChicken/NOVA/wiki).
 
-## Features
+## 💼 Features
 
 When you install NOVA, no features are installed. You need to add them.<br/>
 1) Go to your NOVA's server UI (the default URL is "http://localhost:8080/")
@@ -59,7 +59,7 @@ When you install NOVA, no features are installed. You need to add them.<br/>
 3) Find skills you want, open the modal and click on the "Install" button.<br/>
    The server and clients will restarts, and the skill will be installed.
 
-## Support and contribution
+## 🫵 Support and contribution
 
 I provide support for all users through [GitHub issues](//github.com/HeyHeyChicken/NOVA/issues).
 
@@ -67,7 +67,13 @@ If you would like to contribute to this project, make sure you first read the [g
 
 <a href="//discord.gg/pkWbhDn" rel="nofollow"><img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/join-us-discord.png" alt="Discord" width="200"></a><br/>
 
-## Compatibility
+
+## ⭐ Stars
+
+Thank you to everyone who has and who will starred this project.
+[![Stargazers repo roster for @HeyHeyChicken/NOVA](https://reporoster.com/stars/HeyHeyChicken/NOVA)](https://github.com/HeyHeyChicken/NOVA/stargazers)
+
+## 💻 Compatibility
 
 NOVA has only been officially tested on Mac and Linux.
 
