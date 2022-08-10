@@ -71,7 +71,6 @@ If you would like to contribute to this project, make sure you first read the [g
 
 NOVA has only been officially tested on Mac and Linux.
 
-<br>
-<br>
+<br><br>
 
 Created by [Antoine Duval (HeyHeyChicken)](//antoine.cuffel.fr) with ❤ and ☕ (chocolate) in [Mesnil-Panneville](//en.wikipedia.org/wiki/Mesnil-Panneville).
