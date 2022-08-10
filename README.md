@@ -1,5 +1,5 @@
 <div align="center">
- 
+
 <img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/github-logo.svg" alt="NOVA" width="300">
 
 **NOVA** is a customizable personal assistant made with Node.js.<br>
@@ -34,6 +34,8 @@ git clone https://github.com/HeyHeyChicken/NOVA.git
 2) Install packages
 ```
 cd NOVA
+```
+```
 npm install
 ```
 
