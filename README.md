@@ -75,8 +75,9 @@ Thank you to everyone who has and who will starred this project.
 
 ## 💻 Compatibility
 
-NOVA has only been officially tested on Mac and Linux.
+NOVA has only been officially tested on Mac, Linux and Raspberry Pi 4.
 
-<br><br>
+<br>
+<br>
 
 Created by [Antoine Duval (HeyHeyChicken)](//antoine.cuffel.fr) with ❤ and ☕ (chocolate) in [Mesnil-Panneville](//en.wikipedia.org/wiki/Mesnil-Panneville).
