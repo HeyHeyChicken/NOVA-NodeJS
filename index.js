@@ -8,8 +8,16 @@ LIBRARIES = {
 };
 
 class Launcher {
+    Demo_mode = false;
+
     constructor() {
         const SELF = this;
+
+        if(process.argv[2] != undefined){
+          if(process.argv[2] == "demo"){
+            SELF.Demo_mode = true;
+          }
+        }
 
         SELF.GitClientURL = "https://github.com/HeyHeyChicken/NOVA-Client.git";
         SELF.GitServerURL = "https://github.com/HeyHeyChicken/NOVA-Server.git";
@@ -19,6 +27,12 @@ class Launcher {
 
         SELF.Settings = JSON.parse(LIBRARIES.FS.readFileSync(__dirname + "/settings.json", "utf8"));
         SELF.SocketServer = null;
+
+        if(SELF.Demo_mode){
+          SELF.Settings.LaunchClientOnStart = true;
+          SELF.Settings.LaunchServerOnStart = true;
+          SELF.Settings.Debug = false;
+        }
 
         console.log("######################################");
         console.log("##                                  ##");
