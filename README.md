@@ -20,6 +20,12 @@
 **NOVA** is an open-source personal assistant that you can host on your server.<br/>
 You can communicate with it orally or in writing, most of his skills are designed to work offline to protect your privacy.
 
+## ☁️ Try with a Single-Click
+
+Gitpod will automatically setup an environment and run an instance for you.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/HeyHeyChicken/NOVA)
+
 ## 🔧 Prerequisites
 
 [<img src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/nodeJSLogo.png" width="18" /> Node.js](https://nodejs.org/)<br/>
