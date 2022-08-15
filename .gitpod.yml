@@ -14,7 +14,7 @@ ports:
     onOpen: open-browser
   - name: Client
     description: No description
-    port: 80
+    port: 8083
     onOpen: open-browser
   - name: Server Socket
     description: Socket link between the server and the web clients.
