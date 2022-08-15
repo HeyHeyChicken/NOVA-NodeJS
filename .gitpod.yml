@@ -8,7 +8,19 @@ tasks:
       node index.js demo
 
 ports:
-  - port: 80
-  - port: 8080
-  - port: 8081
-  - port: 8082
+  - name: Server
+    description: No description
+    port: 8080
+    onOpen: open-browser
+
+ports:
+  - name: Client
+    description: No description
+    port: 80
+    onOpen: open-browser
+
+ports:
+  - name: Launcher Socket
+    description: Socket link between the launcher and the server / clients.
+    port: 8082
+    onOpen: ignore
