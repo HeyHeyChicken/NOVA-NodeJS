@@ -16,6 +16,10 @@ ports:
     description: No description
     port: 80
     onOpen: open-browser
+  - name: Server Socket
+    description: Socket link between the server and the web clients.
+    port: 8081
+    onOpen: ignore
   - name: Launcher Socket
     description: Socket link between the launcher and the server / clients.
     port: 8082
