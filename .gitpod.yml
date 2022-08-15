@@ -11,11 +11,11 @@ ports:
   - name: Server
     description: No description
     port: 8080
-    onOpen: open-browser
+    onOpen: ignore
   - name: Client
     description: No description
     port: 8083
-    onOpen: open-browser
+    onOpen: ignore
   - name: Server Socket
     description: Socket link between the server and the web clients.
     port: 8081
