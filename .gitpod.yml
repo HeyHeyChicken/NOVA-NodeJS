@@ -5,4 +5,4 @@
 tasks:
   - init: |
       npm install
-      node index.js
+      node index.js demo
