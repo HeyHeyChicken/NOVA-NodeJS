@@ -11,8 +11,8 @@
 <br>
 <div align="center">
 <img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/screenshot.jpg">
-<img width="415px" src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA-Server/master/resources/screenshot.jpg">
-<img width="415px" src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA-Client/master/resources/screenshot.jpg">
+<img width="410px" src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA-Server/master/resources/screenshot.jpg">
+<img width="410px" src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA-Client/master/resources/screenshot.jpg">
 </div>
 
 <br>
