@@ -87,6 +87,14 @@ Thank you to everyone who has and who will starred this project.
 
 NOVA has only been officially tested on Mac, Linux and Raspberry Pi 4.
 
+## 📦 A great case
+
+Hey, I made a case for my NOVA hosted in a Raspberry PI 4.<br/>
+You can find the SketchUp plan in NOVA/resources/NOVA_SketchUp_Case.skp.<br/>
+<img height="200px" src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/NOVA_SketchUp_Case.gif">
+<img height="200px" src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/NOVA_Case_Without.jpeg">
+<img height="200px" src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA/master/resources/NOVA_Case.jpeg">
+
 <br>
 <br>
 
