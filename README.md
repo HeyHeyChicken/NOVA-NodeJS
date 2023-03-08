@@ -4,13 +4,20 @@
 
 **NOVA** is a customizable personal assistant made with Node.js.<br>
 <br>
+```diff
+! This project has performance problems !
+! It's working well on a computer, but badly on a Raspberry !
+! I suspect that using a chromium-based browser is the cause !
+! i'm working on a similar project in Python, it's seems to be more efficient !
+```
+[NOVA's GitHub project in python](https://github.com/HeyHeyChicken/Nova-python)<br/><br/><br/>
 [![Discord](https://img.shields.io/discord/704685696513736765?label=Discord&style=flat&logo=discord)](https://discord.gg/pkWbhDn)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHeyHeyChicken%2FNOVA.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHeyHeyChicken%2FNOVA?ref=badge_shield)
 </div>
 <br>
 <br>
 <div align="center">
-<img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/screenshot.jpg">
+<img width="820px" src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/screenshot.jpg">
 <img width="410px" src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA-Server/master/resources/screenshot.jpg">
 <img width="410px" src="https://raw.githubusercontent.com/HeyHeyChicken/NOVA-Client/master/resources/screenshot.jpg">
 </div>
