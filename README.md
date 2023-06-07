@@ -80,9 +80,6 @@ I provide support for all users through [GitHub issues](//github.com/HeyHeyChick
 
 If you would like to contribute to this project, make sure you first read the [guide for contributors](//github.com/HeyHeyChicken/NOVA/blob/master/CONTRIBUTING.md).
 
-<a href="//discord.gg/pkWbhDn" rel="nofollow"><img src="https://github.com/HeyHeyChicken/NOVA/blob/master/resources/join-us-discord.png" alt="Discord" width="200"></a><br/>
-
-
 ## ⭐ Stars
 
 Thank you to everyone who has and who will starred this project.
